@@ -1,0 +1,117 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+content_one:
+  id: <%= Fixtures.identify(:content_one) %>
+  article_id: 1
+  user_id: 1
+  title: Content1TitleString
+  permalink: Content1PermalinkString
+  excerpt: Content1ExcerptText
+  body: Content1BodyText
+  excerpt_html: Content1ExcerptHtmlText
+  body_html: Content1BodyHtmlText
+  created_at: 2009-07-09 22:54:51
+  updated_at: 2009-07-09 22:54:51
+  published_at: 2009-07-09 22:54:51
+  type: Content1TypeString
+  author: Content1AuthorString
+  author_url: Content1AuthorUrlString
+  author_email: Content1AuthorEmailString
+  author_ip: Content1AuthorIpString
+  comments_count: 1
+  updater_id: 1
+  version: 1
+  site_id: 1
+  approved: false
+  comment_age: 1
+  filter: Content1FilterString
+  user_agent: Content1UserAgentString
+  referrer: Content1ReferrerString
+  assets_count: 1
+
+content_two:
+  id: <%= Fixtures.identify(:content_two) %>
+  article_id: 1
+  user_id: 1
+  title: Content2TitleString
+  permalink: Content2PermalinkString
+  excerpt: Content2ExcerptText
+  body: Content2BodyText
+  excerpt_html: Content2ExcerptHtmlText
+  body_html: Content2BodyHtmlText
+  created_at: 2009-07-09 22:54:51
+  updated_at: 2009-07-09 22:54:51
+  published_at: 2009-07-09 22:54:51
+  type: Content2TypeString
+  author: Content2AuthorString
+  author_url: Content2AuthorUrlString
+  author_email: Content2AuthorEmailString
+  author_ip: Content2AuthorIpString
+  comments_count: 1
+  updater_id: 1
+  version: 1
+  site_id: 1
+  approved: false
+  comment_age: 1
+  filter: Content2FilterString
+  user_agent: Content2UserAgentString
+  referrer: Content2ReferrerString
+  assets_count: 1
+
+content_three:
+  id: <%= Fixtures.identify(:content_three) %>
+  article_id: 1
+  user_id: 1
+  title: Content3TitleString
+  permalink: Content3PermalinkString
+  excerpt: Content3ExcerptText
+  body: Content3BodyText
+  excerpt_html: Content3ExcerptHtmlText
+  body_html: Content3BodyHtmlText
+  created_at: 2009-07-09 22:54:51
+  updated_at: 2009-07-09 22:54:51
+  published_at: 2009-07-09 22:54:51
+  type: Content3TypeString
+  author: Content3AuthorString
+  author_url: Content3AuthorUrlString
+  author_email: Content3AuthorEmailString
+  author_ip: Content3AuthorIpString
+  comments_count: 1
+  updater_id: 1
+  version: 1
+  site_id: 1
+  approved: false
+  comment_age: 1
+  filter: Content3FilterString
+  user_agent: Content3UserAgentString
+  referrer: Content3ReferrerString
+  assets_count: 1
+
+content_four:
+  id: <%= Fixtures.identify(:content_four) %>
+  article_id: 1
+  user_id: 1
+  title: Content4TitleString
+  permalink: Content4PermalinkString
+  excerpt: Content4ExcerptText
+  body: Content4BodyText
+  excerpt_html: Content4ExcerptHtmlText
+  body_html: Content4BodyHtmlText
+  created_at: 2009-07-09 22:54:51
+  updated_at: 2009-07-09 22:54:51
+  published_at: 2009-07-09 22:54:51
+  type: Content4TypeString
+  author: Content4AuthorString
+  author_url: Content4AuthorUrlString
+  author_email: Content4AuthorEmailString
+  author_ip: Content4AuthorIpString
+  comments_count: 1
+  updater_id: 1
+  version: 1
+  site_id: 1
+  approved: false
+  comment_age: 1
+  filter: Content4FilterString
+  user_agent: Content4UserAgentString
+  referrer: Content4ReferrerString
+  assets_count: 1

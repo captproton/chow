@@ -1,0 +1,89 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+site_one:
+  id: <%= Fixtures.identify(:site_one) %>
+  title: Site1TitleString
+  subtitle: Site1SubtitleString
+  email: Site1EmailString
+  ping_urls: Site1PingUrlsText
+  articles_per_page: 1
+  host: Site1HostString
+  akismet_key: Site1AkismetKeyString
+  akismet_url: Site1AkismetUrlString
+  approve_comments: false
+  comment_age: 1
+  timezone: Site1TimezoneString
+  filter: Site1FilterString
+  permalink_style: Site1PermalinkStyleString
+  search_path: Site1SearchPathString
+  tag_path: Site1TagPathString
+  tag_layout: Site1TagLayoutString
+  current_theme_path: Site1CurrentThemePathString
+  created_at: 2009-07-09 22:54:46
+  updated_at: 2009-07-09 22:54:46
+
+site_two:
+  id: <%= Fixtures.identify(:site_two) %>
+  title: Site2TitleString
+  subtitle: Site2SubtitleString
+  email: Site2EmailString
+  ping_urls: Site2PingUrlsText
+  articles_per_page: 1
+  host: Site2HostString
+  akismet_key: Site2AkismetKeyString
+  akismet_url: Site2AkismetUrlString
+  approve_comments: false
+  comment_age: 1
+  timezone: Site2TimezoneString
+  filter: Site2FilterString
+  permalink_style: Site2PermalinkStyleString
+  search_path: Site2SearchPathString
+  tag_path: Site2TagPathString
+  tag_layout: Site2TagLayoutString
+  current_theme_path: Site2CurrentThemePathString
+  created_at: 2009-07-09 22:54:46
+  updated_at: 2009-07-09 22:54:46
+
+site_three:
+  id: <%= Fixtures.identify(:site_three) %>
+  title: Site3TitleString
+  subtitle: Site3SubtitleString
+  email: Site3EmailString
+  ping_urls: Site3PingUrlsText
+  articles_per_page: 1
+  host: Site3HostString
+  akismet_key: Site3AkismetKeyString
+  akismet_url: Site3AkismetUrlString
+  approve_comments: false
+  comment_age: 1
+  timezone: Site3TimezoneString
+  filter: Site3FilterString
+  permalink_style: Site3PermalinkStyleString
+  search_path: Site3SearchPathString
+  tag_path: Site3TagPathString
+  tag_layout: Site3TagLayoutString
+  current_theme_path: Site3CurrentThemePathString
+  created_at: 2009-07-09 22:54:46
+  updated_at: 2009-07-09 22:54:46
+
+site_four:
+  id: <%= Fixtures.identify(:site_four) %>
+  title: Site4TitleString
+  subtitle: Site4SubtitleString
+  email: Site4EmailString
+  ping_urls: Site4PingUrlsText
+  articles_per_page: 1
+  host: Site4HostString
+  akismet_key: Site4AkismetKeyString
+  akismet_url: Site4AkismetUrlString
+  approve_comments: false
+  comment_age: 1
+  timezone: Site4TimezoneString
+  filter: Site4FilterString
+  permalink_style: Site4PermalinkStyleString
+  search_path: Site4SearchPathString
+  tag_path: Site4TagPathString
+  tag_layout: Site4TagLayoutString
+  current_theme_path: Site4CurrentThemePathString
+  created_at: 2009-07-09 22:54:46
+  updated_at: 2009-07-09 22:54:46

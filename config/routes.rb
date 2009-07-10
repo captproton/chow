@@ -1,15 +1,64 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :user_sessions
+  map.resources :assigned_sections
 
-  map.resources :users
+  map.resources :content_versions
 
-  map.resources :user_sessions
+  map.resources :contents
 
-  ##Pretty Routes
-  map.login 'login', :controller  => "user_sessions", :action => "new"
-  map.logout 'logout', :controller  => "user_sessions", :action => "destroy"
-    
+  map.resources :feedbacks
 
+  map.resources :sites
+
+  map.resources :palooza_plugins
+
+  map.resources :happenings
+
+  map.resources :tags
+
+  map.resources :cached_pages
+
+  map.resources :memberships
+
+  map.resources :media
+
+  map.resources :taggings
+
+  map.resources :assigned_assets
+
+  map.resources :sections
+
+  map.resources :assigned_sections
+
+  map.resources :content_versions
+
+  map.resources :contents
+
+  map.resources :feedbacks
+
+  map.resources :sites
+
+  map.resources :events
+
+  map.resources :palooza_plugins
+
+  map.resources :tags
+
+  map.resources :cached_pages
+
+  map.resources :memberships
+
+  map.resources :media
+
+  map.resources :taggings
+
+  map.resources :assigned_assets
+
+  map.resources :sections
+
+  
+  # Map application root to default RestfulX controller
+  map.root :controller => "flex"
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -42,7 +91,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "front_door"
+  # map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
 

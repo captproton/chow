@@ -3486,3 +3486,470 @@ Rendered shared/_mobile_message (0.1ms)
 Rendered shared/_hd_inner_html (47.2ms)
 Rendered shared/_ft_inner_html (0.1ms)
 Completed in 54ms (View: 53, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090707042709)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090707042709')[0m
+Migrating to CreateSections (20090710043524)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "show_paged_articles" boolean, "articles_per_page" integer, "layout_name" varchar(255), "template" varchar(255), "site_id" integer, "path" varchar(255), "articles_count" integer, "archive_path" varchar(255), "archive_template" varchar(255), "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043524')[0m
+Migrating to CreateAssignedAssets (20090710043525)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "assigned_assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "asset_id" integer, "position" integer, "label" varchar(255), "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043525')[0m
+Migrating to CreateTaggings (20090710043526)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043526')[0m
+Migrating to CreateMedia (20090710043527)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "media" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_type" varchar(255), "filename" varchar(255), "size" integer, "parent_id" integer, "site_id" integer, "title" varchar(255), "user_id" integer, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043527')[0m
+Migrating to CreateMemberships (20090710043528)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer, "user_id" integer, "created_at" datetime, "admin" boolean, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043528')[0m
+Migrating to CreateCachedPages (20090710043529)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "cached_pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "references" text, "updated_at" datetime, "site_id" integer, "cleared_at" datetime, "created_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043529')[0m
+Migrating to CreateTags (20090710043530)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043530')[0m
+Migrating to CreatePaloozaPlugins (20090710043532)
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "palooza_plugins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "options" text, "type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043532')[0m
+Migrating to CreateEvents (20090710043533)
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "mode" varchar(255), "user_id" integer, "article_id" integer, "title" text, "body" text, "created_at" datetime, "author" varchar(255), "comment_id" integer, "site_id" integer, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043533')[0m
+Migrating to CreateSites (20090710043534)
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "subtitle" varchar(255), "email" varchar(255), "ping_urls" text, "articles_per_page" integer, "host" varchar(255), "akismet_key" varchar(255), "akismet_url" varchar(255), "approve_comments" boolean, "comment_age" integer, "timezone" varchar(255), "filter" varchar(255), "permalink_style" varchar(255), "search_path" varchar(255), "tag_path" varchar(255), "tag_layout" varchar(255), "current_theme_path" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043534')[0m
+Migrating to CreateFeedbacks (20090710043535)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "feedbacks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer, "name" varchar(255), "email" varchar(255), "body" text, "key" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043535')[0m
+Migrating to CreateContents (20090710043536)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCREATE TABLE "contents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "title" varchar(255), "permalink" varchar(255), "excerpt" text, "body" text, "excerpt_html" text, "body_html" text, "created_at" datetime, "updated_at" datetime, "published_at" datetime, "type" varchar(255), "author" varchar(255), "author_url" varchar(255), "author_email" varchar(255), "author_ip" varchar(255), "comments_count" integer, "updater_id" integer, "version" integer, "site_id" integer, "approved" boolean, "comment_age" integer, "filter" varchar(255), "user_agent" varchar(255), "referrer" varchar(255), "assets_count" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043536')[0m
+Migrating to CreateContentVersions (20090710043537)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "content_versions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_id" integer, "version" integer, "article_id" integer, "user_id" integer, "title" varchar(255), "permalink" varchar(255), "excerpt" text, "body" text, "excerpt_html" text, "body_html" text, "published_at" datetime, "author" varchar(255), "author_url" varchar(255), "author_email" varchar(255), "author_ip" varchar(255), "comments_count" integer, "updater_id" integer, "versioned_type" varchar(255), "site_id" integer, "approved" boolean, "comment_age" integer, "filter" varchar(255), "user_agent" varchar(255), "referrer" varchar(255), "assets_count" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043537')[0m
+Migrating to CreateAssignedSections (20090710043538)
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "assigned_sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "section_id" integer, "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043538')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("assigned_assets")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("assigned_sections")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("cached_pages")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("content_versions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("contents")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("events")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("feedbacks")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("media")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("memberships")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("palooza_plugins")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("sections")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("sites")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("taggings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("tags")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090707042709)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090707042709')[0m
+Migrating to CreateSections (20090710043524)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "show_paged_articles" boolean, "articles_per_page" integer, "layout_name" varchar(255), "template" varchar(255), "site_id" integer, "path" varchar(255), "articles_count" integer, "archive_path" varchar(255), "archive_template" varchar(255), "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043524')[0m
+Migrating to CreateAssignedAssets (20090710043525)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "assigned_assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "asset_id" integer, "position" integer, "label" varchar(255), "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043525')[0m
+Migrating to CreateTaggings (20090710043526)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043526')[0m
+Migrating to CreateMedia (20090710043527)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "media" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_type" varchar(255), "filename" varchar(255), "size" integer, "parent_id" integer, "site_id" integer, "title" varchar(255), "user_id" integer, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043527')[0m
+Migrating to CreateMemberships (20090710043528)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer, "user_id" integer, "created_at" datetime, "admin" boolean, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043528')[0m
+Migrating to CreateCachedPages (20090710043529)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "cached_pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "references" text, "updated_at" datetime, "site_id" integer, "cleared_at" datetime, "created_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043529')[0m
+Migrating to CreateTags (20090710043530)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043530')[0m
+Migrating to CreatePaloozaPlugins (20090710043532)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "palooza_plugins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "options" text, "type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043532')[0m
+Migrating to CreateEvents (20090710043533)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "mode" varchar(255), "user_id" integer, "article_id" integer, "title" text, "body" text, "created_at" datetime, "author" varchar(255), "comment_id" integer, "site_id" integer, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043533')[0m
+Migrating to CreateSites (20090710043534)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "subtitle" varchar(255), "email" varchar(255), "ping_urls" text, "articles_per_page" integer, "host" varchar(255), "akismet_key" varchar(255), "akismet_url" varchar(255), "approve_comments" boolean, "comment_age" integer, "timezone" varchar(255), "filter" varchar(255), "permalink_style" varchar(255), "search_path" varchar(255), "tag_path" varchar(255), "tag_layout" varchar(255), "current_theme_path" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043534')[0m
+Migrating to CreateFeedbacks (20090710043535)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "feedbacks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer, "name" varchar(255), "email" varchar(255), "body" text, "key" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043535')[0m
+Migrating to CreateContents (20090710043536)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "contents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "title" varchar(255), "permalink" varchar(255), "excerpt" text, "body" text, "excerpt_html" text, "body_html" text, "created_at" datetime, "updated_at" datetime, "published_at" datetime, "type" varchar(255), "author" varchar(255), "author_url" varchar(255), "author_email" varchar(255), "author_ip" varchar(255), "comments_count" integer, "updater_id" integer, "version" integer, "site_id" integer, "approved" boolean, "comment_age" integer, "filter" varchar(255), "user_agent" varchar(255), "referrer" varchar(255), "assets_count" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043536')[0m
+Migrating to CreateContentVersions (20090710043537)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "content_versions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_id" integer, "version" integer, "article_id" integer, "user_id" integer, "title" varchar(255), "permalink" varchar(255), "excerpt" text, "body" text, "excerpt_html" text, "body_html" text, "published_at" datetime, "author" varchar(255), "author_url" varchar(255), "author_email" varchar(255), "author_ip" varchar(255), "comments_count" integer, "updater_id" integer, "versioned_type" varchar(255), "site_id" integer, "approved" boolean, "comment_age" integer, "filter" varchar(255), "user_agent" varchar(255), "referrer" varchar(255), "assets_count" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043537')[0m
+Migrating to CreateAssignedSections (20090710043538)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "assigned_sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "section_id" integer, "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043538')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("assigned_assets")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("assigned_sections")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("cached_pages")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("content_versions")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("contents")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("events")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("feedbacks")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("media")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("memberships")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("palooza_plugins")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("sections")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("sites")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("taggings")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("tags")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090707042709)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "password" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090707042709')[0m
+Migrating to CreateSections (20090710043524)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "show_paged_articles" boolean, "articles_per_page" integer, "layout_name" varchar(255), "template" varchar(255), "site_id" integer, "path" varchar(255), "articles_count" integer, "archive_path" varchar(255), "archive_template" varchar(255), "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043524')[0m
+Migrating to CreateAssignedAssets (20090710043525)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "assigned_assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "asset_id" integer, "position" integer, "label" varchar(255), "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043525')[0m
+Migrating to CreateTaggings (20090710043526)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043526')[0m
+Migrating to CreateMedia (20090710043527)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "media" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_type" varchar(255), "filename" varchar(255), "size" integer, "parent_id" integer, "site_id" integer, "title" varchar(255), "user_id" integer, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043527')[0m
+Migrating to CreateMemberships (20090710043528)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer, "user_id" integer, "created_at" datetime, "admin" boolean, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043528')[0m
+Migrating to CreateCachedPages (20090710043529)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCREATE TABLE "cached_pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "references" text, "updated_at" datetime, "site_id" integer, "cleared_at" datetime, "created_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043529')[0m
+Migrating to CreateTags (20090710043530)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043530')[0m
+Migrating to CreatePaloozaPlugins (20090710043532)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "palooza_plugins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "options" text, "type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043532')[0m
+Migrating to CreateEvents (20090710043533)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "mode" varchar(255), "user_id" integer, "article_id" integer, "title" text, "body" text, "created_at" datetime, "author" varchar(255), "comment_id" integer, "site_id" integer, "updated_at" datetime) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043533')[0m
+Migrating to CreateSites (20090710043534)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "subtitle" varchar(255), "email" varchar(255), "ping_urls" text, "articles_per_page" integer, "host" varchar(255), "akismet_key" varchar(255), "akismet_url" varchar(255), "approve_comments" boolean, "comment_age" integer, "timezone" varchar(255), "filter" varchar(255), "permalink_style" varchar(255), "search_path" varchar(255), "tag_path" varchar(255), "tag_layout" varchar(255), "current_theme_path" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043534')[0m
+Migrating to CreateFeedbacks (20090710043535)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "feedbacks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer, "name" varchar(255), "email" varchar(255), "body" text, "key" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043535')[0m
+Migrating to CreateContents (20090710043536)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "contents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "title" varchar(255), "permalink" varchar(255), "excerpt" text, "body" text, "excerpt_html" text, "body_html" text, "created_at" datetime, "updated_at" datetime, "published_at" datetime, "type" varchar(255), "author" varchar(255), "author_url" varchar(255), "author_email" varchar(255), "author_ip" varchar(255), "comments_count" integer, "updater_id" integer, "version" integer, "site_id" integer, "approved" boolean, "comment_age" integer, "filter" varchar(255), "user_agent" varchar(255), "referrer" varchar(255), "assets_count" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043536')[0m
+Migrating to CreateContentVersions (20090710043537)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "content_versions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_id" integer, "version" integer, "article_id" integer, "user_id" integer, "title" varchar(255), "permalink" varchar(255), "excerpt" text, "body" text, "excerpt_html" text, "body_html" text, "published_at" datetime, "author" varchar(255), "author_url" varchar(255), "author_email" varchar(255), "author_ip" varchar(255), "comments_count" integer, "updater_id" integer, "versioned_type" varchar(255), "site_id" integer, "approved" boolean, "comment_age" integer, "filter" varchar(255), "user_agent" varchar(255), "referrer" varchar(255), "assets_count" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043537')[0m
+Migrating to CreateAssignedSections (20090710043538)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "assigned_sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "section_id" integer, "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710043538')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("assigned_assets")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("assigned_sections")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("cached_pages")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("content_versions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("contents")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("events")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("feedbacks")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("media")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("memberships")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("palooza_plugins")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("sections")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("sites")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("taggings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("tags")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090707042709)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "password" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090707042709')[0m
+Migrating to CreateSections (20090710045415)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "show_paged_articles" boolean, "articles_per_page" integer, "layout_name" varchar(255), "template" varchar(255), "site_id" integer, "path" varchar(255), "articles_count" integer, "archive_path" varchar(255), "archive_template" varchar(255), "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045415')[0m
+Migrating to CreateAssignedAssets (20090710045419)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "assigned_assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "asset_id" integer, "position" integer, "label" varchar(255), "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045419')[0m
+Migrating to CreateTaggings (20090710045422)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045422')[0m
+Migrating to CreateMedia (20090710045426)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "media" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_type" varchar(255), "filename" varchar(255), "size" integer, "parent_id" integer, "site_id" integer, "title" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045426')[0m
+Migrating to CreateMemberships (20090710045433)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "memberships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer, "user_id" integer, "created_at" datetime, "updated_at" datetime, "admin" boolean) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045433')[0m
+Migrating to CreateCachedPages (20090710045434)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "cached_pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar(255), "references" text, "updated_at" datetime, "site_id" integer, "cleared_at" datetime, "created_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045434')[0m
+Migrating to CreateTags (20090710045439)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045439')[0m
+Migrating to CreateHappenings (20090710045440)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "happenings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "mode" varchar(255), "user_id" integer, "article_id" integer, "title" text, "body" text, "created_at" datetime, "updated_at" datetime, "author" varchar(255), "comment_id" integer, "site_id" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045440')[0m
+Migrating to CreatePaloozaPlugins (20090710045441)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "palooza_plugins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "options" text, "type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045441')[0m
+Migrating to CreateSites (20090710045446)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCREATE TABLE "sites" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "subtitle" varchar(255), "email" varchar(255), "ping_urls" text, "articles_per_page" integer, "host" varchar(255), "akismet_key" varchar(255), "akismet_url" varchar(255), "approve_comments" boolean, "comment_age" integer, "timezone" varchar(255), "filter" varchar(255), "permalink_style" varchar(255), "search_path" varchar(255), "tag_path" varchar(255), "tag_layout" varchar(255), "current_theme_path" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045446')[0m
+Migrating to CreateFeedbacks (20090710045450)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "feedbacks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "site_id" integer, "name" varchar(255), "email" varchar(255), "body" text, "key" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045450')[0m
+Migrating to CreateContents (20090710045451)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "contents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "user_id" integer, "title" varchar(255), "permalink" varchar(255), "excerpt" text, "body" text, "excerpt_html" text, "body_html" text, "created_at" datetime, "updated_at" datetime, "published_at" datetime, "type" varchar(255), "author" varchar(255), "author_url" varchar(255), "author_email" varchar(255), "author_ip" varchar(255), "comments_count" integer, "updater_id" integer, "version" integer, "site_id" integer, "approved" boolean, "comment_age" integer, "filter" varchar(255), "user_agent" varchar(255), "referrer" varchar(255), "assets_count" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045451')[0m
+Migrating to CreateContentVersions (20090710045454)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCREATE TABLE "content_versions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content_id" integer, "version" integer, "article_id" integer, "user_id" integer, "title" varchar(255), "permalink" varchar(255), "excerpt" text, "body" text, "excerpt_html" text, "body_html" text, "published_at" datetime, "created_at" datetime, "updated_at" datetime, "author" varchar(255), "author_url" varchar(255), "author_email" varchar(255), "author_ip" varchar(255), "comments_count" integer, "updater_id" integer, "versioned_type" varchar(255), "site_id" integer, "approved" boolean, "comment_age" integer, "filter" varchar(255), "user_agent" varchar(255), "referrer" varchar(255), "assets_count" integer) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045454')[0m
+Migrating to CreateAssignedSections (20090710045500)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "assigned_sections" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "section_id" integer, "position" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090710045500')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("assigned_assets")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("assigned_sections")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("cached_pages")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("content_versions")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("contents")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("feedbacks")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("happenings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("media")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("memberships")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("palooza_plugins")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("sections")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("sites")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("taggings")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("tags")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing FlexController#index (for ::1 at 2009-07-09 22:56:10) [GET]
+Rendering template within layouts/application
+Rendering flex/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#session_id has been deprecated. Please use request.session_options[:id] instead.. (called from swfobject at /opt/local/lib/ruby/gems/1.8/gems/restfulx-1.2.2/lib/restfulx/rails/swf_helper.rb:37)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+
+ActionView::TemplateError (undefined local variable or method `new_user_path' for #<ActionView::Base:0x23ecfb8>) on line #17 of app/views/layouts/application.html.erb:
+14: 				<%= link_to "Logout", logout_path %>
+15: 			<% else %>
+16: 			
+17: 				<%= link_to "Register", new_user_path %> | 
+18: 				<%= link_to "Login", login_path %>
+19: 			<% end %>
+20: 		</div>
+
+    app/views/layouts/application.html.erb:17
+    restfulx (1.2.2) lib/restfulx.rb:69:in `render'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (106.4ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FlexController#index (for ::1 at 2009-07-09 23:00:45) [GET]
+Rendering template within layouts/flex
+Rendering flex/index
+DEPRECATION WARNING: ActionController::Session::AbstractStore::SessionHash#session_id has been deprecated. Please use request.session_options[:id] instead.. (called from swfobject at /opt/local/lib/ruby/gems/1.8/gems/restfulx-1.2.2/lib/restfulx/rails/swf_helper.rb:37)
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing AssignedAssetsController#index to fxml (for ::1 at 2009-07-09 23:00:46) [GET]
+  [4;36;1mAssignedAsset Load (1.4ms)[0m   [0;1mSELECT * FROM "assigned_assets" [0m
+Completed in 336ms (DB: 1) | 200 OK [http://localhost/assigned_assets.fxml]
+
+
+Processing MediaController#index to fxml (for ::1 at 2009-07-09 23:00:47) [GET]
+  [4;35;1mMedium Load (1.4ms)[0m   [0mSELECT * FROM "media" [0m
+Completed in 18ms (DB: 1) | 200 OK [http://localhost/media.fxml]
+
+
+Processing CachedPagesController#index to fxml (for ::1 at 2009-07-09 23:00:47) [GET]
+  [4;36;1mCachedPage Load (1.2ms)[0m   [0;1mSELECT * FROM "cached_pages" [0m
+Completed in 19ms (DB: 1) | 200 OK [http://localhost/cached_pages.fxml]
+
+
+Processing SitesController#index to fxml (for ::1 at 2009-07-09 23:00:47) [GET]
+  [4;35;1mSite Load (32.2ms)[0m   [0mSELECT * FROM "sites" [0m
+Completed in 53ms (DB: 32) | 200 OK [http://localhost/sites.fxml]
+
+
+Processing TaggingsController#index to fxml (for ::1 at 2009-07-09 23:00:47) [GET]
+  [4;36;1mTagging Load (1.2ms)[0m   [0;1mSELECT * FROM "taggings" [0m
+Completed in 14ms (DB: 1) | 200 OK [http://localhost/taggings.fxml]
+
+
+Processing AssignedSectionsController#index to fxml (for ::1 at 2009-07-09 23:00:47) [GET]
+  [4;35;1mAssignedSection Load (1.1ms)[0m   [0mSELECT * FROM "assigned_sections" [0m
+Completed in 23ms (DB: 1) | 200 OK [http://localhost/assigned_sections.fxml]
+
+
+Processing ContentsController#index to fxml (for ::1 at 2009-07-09 23:00:47) [GET]
+  [4;36;1mContent Load (4.7ms)[0m   [0;1mSELECT * FROM "contents" [0m
+
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'Content2TypeString'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite Content.inheritance_column to use another column for that information.):
+  app/controllers/contents_controller.rb:6:in `index'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing FeedbacksController#index to fxml (for ::1 at 2009-07-09 23:00:47) [GET]
+  [4;35;1mFeedback Load (2.2ms)[0m   [0mSELECT * FROM "feedbacks" [0m
+Completed in 16ms (DB: 2) | 200 OK [http://localhost/feedbacks.fxml]
+
+
+Processing PaloozaPluginsController#index to fxml (for ::1 at 2009-07-09 23:00:47) [GET]
+  [4;36;1mPaloozaPlugin Load (1.3ms)[0m   [0;1mSELECT * FROM "palooza_plugins" [0m
+
+ActiveRecord::SubclassNotFound (The single-table inheritance mechanism failed to locate the subclass: 'PaloozaPlugin4TypeString'. This error is raised because the column 'type' is reserved for storing the class in case of inheritance. Please rename this column if you didn't intend it to be used for storing the inheritance class or overwrite PaloozaPlugin.inheritance_column to use another column for that information.):
+  app/controllers/palooza_plugins_controller.rb:6:in `index'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ContentVersionsController#index to fxml (for ::1 at 2009-07-09 23:00:48) [GET]
+  [4;35;1mContentVersion Load (1.9ms)[0m   [0mSELECT * FROM "content_versions" [0m
+Completed in 26ms (DB: 2) | 200 OK [http://localhost/content_versions.fxml]
+
+
+Processing SectionsController#index to fxml (for ::1 at 2009-07-09 23:00:48) [GET]
+  [4;36;1mSection Load (1.4ms)[0m   [0;1mSELECT * FROM "sections" [0m
+Completed in 16ms (DB: 1) | 200 OK [http://localhost/sections.fxml]
+
+
+Processing HappeningsController#index to fxml (for ::1 at 2009-07-09 23:00:48) [GET]
+  [4;35;1mHappening Load (1.2ms)[0m   [0mSELECT * FROM "happenings" [0m
+Completed in 21ms (DB: 1) | 200 OK [http://localhost/happenings.fxml]
+
+
+Processing MembershipsController#index to fxml (for ::1 at 2009-07-09 23:00:48) [GET]
+  [4;36;1mMembership Load (1.3ms)[0m   [0;1mSELECT * FROM "memberships" [0m
+Completed in 15ms (DB: 1) | 200 OK [http://localhost/memberships.fxml]
+
+
+Processing TagsController#index to fxml (for ::1 at 2009-07-09 23:00:48) [GET]
+  [4;35;1mTag Load (1.0ms)[0m   [0mSELECT * FROM "tags" [0m
+Completed in 27ms (DB: 1) | 200 OK [http://localhost/tags.fxml]

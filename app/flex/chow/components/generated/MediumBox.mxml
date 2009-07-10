@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" label="Medium"
+  xmlns:rx="org.restfulx.components.rx.*">
+  <mx:Script><![CDATA[
+    import org.restfulx.Rx;
+    import org.restfulx.utils.RxUtils;
+    import chow.models.Medium;
+    import org.restfulx.utils.RxFileReference;
+
+    [Bindable]
+    private var medium:Medium = new Medium();
+    [Bindable]
+    private var fileName:String = "None selected";
+    
+    private var file:RxFileReference;
+
+    private function newMedium():void {
+      medium = new Medium();
+      mediaList.selectedIndex = -1;
+    }
+
+    private function saveMedium():void {
+      updateModelProperties();
+      if (medium.id) {
+        medium.update({onSuccess: onMediumUpdate});
+      } else {
+        medium.create({onSuccess: onMediumCreate});
+      }
+    }
+  
+    private function updateModelProperties():void {
+      medium.contentType = contentTypeTextInput.text;
+      medium.filename = filenameTextInput.text;
+      medium.size = int(sizeTextInput.text);
+      medium.parentId = int(parentIdTextInput.text);
+      medium.siteId = int(siteIdTextInput.text);
+      medium.title = titleTextInput.text;
+      medium.userId = int(userIdTextInput.text);
+      medium.createdAt = createdAtDateTimeTextInput.date;
+      medium.updatedAt = updatedAtDateTimeTextInput.date;
+  
+      medium.attachment = file;
+    }
+   
+    private function destroyMedium():void {
+      medium.destroy({onSuccess: onMediumDestroy});
+    }
+    
+    private function onMediumSelect():void {
+      medium = RxUtils.clone(mediaList.selectedItem) as Medium;
+    }
+    
+    private function onMediumCreate(result:Medium):void {
+      medium = new Medium;
+    }
+    
+    private function onMediumUpdate(result:Medium):void {
+      mediaList.selectedItem = result;
+      onMediumSelect();
+    }
+    
+    private function onMediumDestroy(result:Medium):void {
+      onMediumCreate(result);
+    }    
+
+    private function chooseFile():void {
+      file = new RxFileReference("av");
+      file.addEventListener(IOErrorEvent.IO_ERROR, ioErrorHandler, false, 0, true);
+      file.addEventListener(Event.SELECT, selectFile, false, 0, true);
+      file.addEventListener(Event.CANCEL, cancelBrowse, false, 0, true);
+      file.browse();
+    }
+    
+    private function selectFile(event:Event):void { 
+      fileSelected(event)
+    }
+    
+    private function cancelBrowse(event:Event):void {
+      file = null;
+    }
+    
+    private function fileSelected(event:Event):void {
+      fileName = RxFileReference(event.target).name;
+    }
+    
+    private function ioErrorHandler(event:Event):void {
+      fileChooser.errorString = "Failed to selected a file. Please try again.";
+    }
+  ]]></mx:Script>
+  <mx:Panel id="mediaPanel"
+    title="Media" cornerRadius="0" dropShadowEnabled="false" borderStyle="solid"
+    borderThickness="1" backgroundColor="#EEEEEE" width="25%" height="100%">
+    <mx:List id="mediaList"
+      width="100%" height="100%"
+      dataProvider="{Rx.models.index(Medium)}"
+      change="onMediumSelect()"/>
+    <mx:ControlBar width="100%">
+      <mx:Button label="New Medium" width="100%" height="30"
+        click="newMedium()"/>
+    </mx:ControlBar>
+  </mx:Panel>
+  <mx:Panel title="Edit Medium" cornerRadius="0" dropShadowEnabled="false" borderStyle="solid"
+    borderThickness="1" backgroundColor="#EEEEEE" width="75%" height="100%">
+    <mx:Form width="100%" height="100%">
+      <mx:FormItem label="ContentType" width="100%">
+        <mx:TextInput id="contentTypeTextInput" width="100%" text="{medium.contentType}"/>
+      </mx:FormItem>
+      <mx:FormItem label="Filename" width="100%">
+        <mx:TextInput id="filenameTextInput" width="100%" text="{medium.filename}"/>
+      </mx:FormItem>
+      <mx:FormItem label="Size" width="100%">
+        <mx:TextInput id="sizeTextInput" width="100%" text="{medium.size}"/>
+      </mx:FormItem>
+      <mx:FormItem label="ParentId" width="100%">
+        <mx:TextInput id="parentIdTextInput" width="100%" text="{medium.parentId}"/>
+      </mx:FormItem>
+      <mx:FormItem label="SiteId" width="100%">
+        <mx:TextInput id="siteIdTextInput" width="100%" text="{medium.siteId}"/>
+      </mx:FormItem>
+      <mx:FormItem label="Title" width="100%">
+        <mx:TextInput id="titleTextInput" width="100%" text="{medium.title}"/>
+      </mx:FormItem>
+      <mx:FormItem label="UserId" width="100%">
+        <mx:TextInput id="userIdTextInput" width="100%" text="{medium.userId}"/>
+      </mx:FormItem>
+      <mx:FormItem label="CreatedAt" width="100%">
+        <rx:DateTimeTextInput id="createdAtDateTimeTextInput" width="200" date="{medium.createdAt}"/>
+      </mx:FormItem>
+      <mx:FormItem label="UpdatedAt" width="100%">
+        <rx:DateTimeTextInput id="updatedAtDateTimeTextInput" width="200" date="{medium.updatedAt}"/>
+      </mx:FormItem>
+      <mx:FormItem label="Av:" width="100%" id="fileChooser">
+        <mx:Button label="Browse…" id="fileBrowseButton" click="chooseFile()"/>
+        <mx:Label text="{fileName}" maxWidth="190"/>
+        <mx:Image source="{medium.attachmentUrl}"/>
+      </mx:FormItem>
+    </mx:Form>
+    <mx:ControlBar width="100%">
+      <mx:Button label="Save Medium" width="50%" height="30"
+        click="saveMedium()"/>
+      <mx:Button label="Delete Medium" width="50%" height="30"
+        enabled="{RxUtils.canDeleteModel(medium)}"
+        click="destroyMedium()"/>
+    </mx:ControlBar>
+  </mx:Panel>
+</mx:HBox>

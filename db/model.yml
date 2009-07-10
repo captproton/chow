@@ -1,4 +1,4 @@
-media:
+medium:
  - content_type: string
  -  filename: string
  -  size: integer
@@ -6,30 +6,36 @@ media:
  -  site_id: integer
  -  title: string
  -  user_id: integer
+ -  created_at: datetime
+ -  updated_at: datetime
  - attachment_field: [av]
 
 
-assigned_assets:
+assigned_asset:
  -  article_id: integer
  -  asset_id: integer
  -  position: integer
  -  label: string
  -  active: boolean
+ -  created_at: datetime
+ -  updated_at: datetime
 
-assigned_sections:
+assigned_section:
  -  article_id: integer
  -  section_id: integer
  -  position: integer
+ -  created_at: datetime
+ -  updated_at: datetime
 
 
-cached_pages:
+cached_page:
  -  url: string
  -  references: text  
  -  updated_at: datetime
  -  site_id: integer
  -  cleared_at: datetime
 
-content_versions:
+content_version:
  -  content_id: integer
  -  version: integer
  -  article_id: integer
@@ -41,6 +47,8 @@ content_versions:
  -  excerpt_html: text  
  -  body_html: text  
  -  published_at: datetime
+ -  created_at: datetime
+ -  updated_at: datetime
  -  author: string
  -  author_url: string
  -  author_email: string
@@ -56,7 +64,7 @@ content_versions:
  -  referrer: string
  -  assets_count: integer
 
-contents:
+content:
  -  article_id: integer
  -  user_id: integer
  -  title: string
@@ -84,52 +92,57 @@ contents:
  -  referrer: string
  -  assets_count: integer
 
-events:
+happening:
  -  mode: string
  -  user_id: integer
  -  article_id: integer
  -  title: text  
  -  body: text  
  -  created_at: datetime
+ -  updated_at: datetime
  -  author: string
  -  comment_id: integer
  -  site_id: integer
 
 
-feedbacks:
+feedback:
  -  site_id: integer
  -  name: string
  -  email: string
  -  body: text  
  -  key: string
  -  created_at: datetime
+ -  updated_at: datetime
 
-memberships:
+membership:
  -  site_id: integer
  -  user_id: integer
  -  created_at: datetime
+ -  updated_at: datetime
  -  admin: boolean
 
 
-palooza_plugins:
+palooza_plugin:
  -  name: string
  -  options: text
  -  type: string
 
-sections:
- -  name: string
- -  show_paged_articles: boolean
- -  articles_per_page: integer
- -  layout: string
- -  template: string
- -  site_id: integer
- -  path: string
- -  articles_count: integer
- -  archive_path: string
- -  archive_template: string
- -  position: integer
+section:
+    -  name: string
+    -  show_paged_articles: boolean
+    -  articles_per_page: integer
+    -  layout_name: string
+    -  template: string
+    -  site_id: integer
+    -  path: string
+    -  articles_count: integer
+    -  archive_path: string
+    -  archive_template: string
+    -  position: integer
+    -  created_at: datetime
+    -  updated_at: datetime
 
-sites:
+site:
  -  title: string
  -  subtitle: string
  -  email: string
@@ -147,13 +160,19 @@ sites:
  -  tag_path: string
  -  tag_layout: string
  -  current_theme_path: string
+ -  created_at: datetime
+ -  updated_at: datetime
 
 
-taggings:
+tagging:
  -  tag_id: integer
  -  taggable_id: integer
  -  taggable_type: string
+ -  created_at: datetime
+ -  updated_at: datetime
 
-tags:
+tag:
  -  name: string
+ -  created_at: datetime
+ -  updated_at: datetime
 

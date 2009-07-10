@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" label="Happening"
+  xmlns:rx="org.restfulx.components.rx.*">
+  <mx:Script><![CDATA[
+    import org.restfulx.Rx;
+    import org.restfulx.utils.RxUtils;
+    import chow.models.Happening;
+
+    [Bindable]
+    private var happening:Happening = new Happening();
+
+    private function newHappening():void {
+      happening = new Happening();
+      happeningsList.selectedIndex = -1;
+    }
+
+    private function saveHappening():void {
+      updateModelProperties();
+      if (happening.id) {
+        happening.update({onSuccess: onHappeningUpdate});
+      } else {
+        happening.create({onSuccess: onHappeningCreate});
+      }
+    }
+  
+    private function updateModelProperties():void {
+      happening.mode = modeTextInput.text;
+      happening.userId = int(userIdTextInput.text);
+      happening.articleId = int(articleIdTextInput.text);
+      happening.title = titleTextArea.text;
+      happening.body = bodyTextArea.text;
+      happening.createdAt = createdAtDateTimeTextInput.date;
+      happening.updatedAt = updatedAtDateTimeTextInput.date;
+      happening.author = authorTextInput.text;
+      happening.commentId = int(commentIdTextInput.text);
+      happening.siteId = int(siteIdTextInput.text);
+  
+    }
+   
+    private function destroyHappening():void {
+      happening.destroy({onSuccess: onHappeningDestroy});
+    }
+    
+    private function onHappeningSelect():void {
+      happening = RxUtils.clone(happeningsList.selectedItem) as Happening;
+    }
+    
+    private function onHappeningCreate(result:Happening):void {
+      happening = new Happening;
+    }
+    
+    private function onHappeningUpdate(result:Happening):void {
+      happeningsList.selectedItem = result;
+      onHappeningSelect();
+    }
+    
+    private function onHappeningDestroy(result:Happening):void {
+      onHappeningCreate(result);
+    }    
+  ]]></mx:Script>
+  <mx:Panel id="happeningsPanel"
+    title="Happenings" cornerRadius="0" dropShadowEnabled="false" borderStyle="solid"
+    borderThickness="1" backgroundColor="#EEEEEE" width="25%" height="100%">
+    <mx:List id="happeningsList"
+      width="100%" height="100%"
+      dataProvider="{Rx.models.index(Happening)}"
+      change="onHappeningSelect()"/>
+    <mx:ControlBar width="100%">
+      <mx:Button label="New Happening" width="100%" height="30"
+        click="newHappening()"/>
+    </mx:ControlBar>
+  </mx:Panel>
+  <mx:Panel title="Edit Happening" cornerRadius="0" dropShadowEnabled="false" borderStyle="solid"
+    borderThickness="1" backgroundColor="#EEEEEE" width="75%" height="100%">
+    <mx:Form width="100%" height="100%">
+      <mx:FormItem label="Mode" width="100%">
+        <mx:TextInput id="modeTextInput" width="100%" text="{happening.mode}"/>
+      </mx:FormItem>
+      <mx:FormItem label="UserId" width="100%">
+        <mx:TextInput id="userIdTextInput" width="100%" text="{happening.userId}"/>
+      </mx:FormItem>
+      <mx:FormItem label="ArticleId" width="100%">
+        <mx:TextInput id="articleIdTextInput" width="100%" text="{happening.articleId}"/>
+      </mx:FormItem>
+      <mx:FormItem label="Title" width="100%">
+        <mx:TextArea id="titleTextArea" width="100%" height="200" text="{happening.title}"/>
+      </mx:FormItem>
+      <mx:FormItem label="Body" width="100%">
+        <mx:TextArea id="bodyTextArea" width="100%" height="200" text="{happening.body}"/>
+      </mx:FormItem>
+      <mx:FormItem label="CreatedAt" width="100%">
+        <rx:DateTimeTextInput id="createdAtDateTimeTextInput" width="200" date="{happening.createdAt}"/>
+      </mx:FormItem>
+      <mx:FormItem label="UpdatedAt" width="100%">
+        <rx:DateTimeTextInput id="updatedAtDateTimeTextInput" width="200" date="{happening.updatedAt}"/>
+      </mx:FormItem>
+      <mx:FormItem label="Author" width="100%">
+        <mx:TextInput id="authorTextInput" width="100%" text="{happening.author}"/>
+      </mx:FormItem>
+      <mx:FormItem label="CommentId" width="100%">
+        <mx:TextInput id="commentIdTextInput" width="100%" text="{happening.commentId}"/>
+      </mx:FormItem>
+      <mx:FormItem label="SiteId" width="100%">
+        <mx:TextInput id="siteIdTextInput" width="100%" text="{happening.siteId}"/>
+      </mx:FormItem>
+    </mx:Form>
+    <mx:ControlBar width="100%">
+      <mx:Button label="Save Happening" width="50%" height="30"
+        click="saveHappening()"/>
+      <mx:Button label="Delete Happening" width="50%" height="30"
+        enabled="{RxUtils.canDeleteModel(happening)}"
+        click="destroyHappening()"/>
+    </mx:ControlBar>
+  </mx:Panel>
+</mx:HBox>

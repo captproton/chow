@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+palooza_plugin_one:
+  id: <%= Fixtures.identify(:palooza_plugin_one) %>
+  name: PaloozaPlugin1NameString
+  options: PaloozaPlugin1OptionsText
+  type: PaloozaPlugin1TypeString
+
+palooza_plugin_two:
+  id: <%= Fixtures.identify(:palooza_plugin_two) %>
+  name: PaloozaPlugin2NameString
+  options: PaloozaPlugin2OptionsText
+  type: PaloozaPlugin2TypeString
+
+palooza_plugin_three:
+  id: <%= Fixtures.identify(:palooza_plugin_three) %>
+  name: PaloozaPlugin3NameString
+  options: PaloozaPlugin3OptionsText
+  type: PaloozaPlugin3TypeString
+
+palooza_plugin_four:
+  id: <%= Fixtures.identify(:palooza_plugin_four) %>
+  name: PaloozaPlugin4NameString
+  options: PaloozaPlugin4OptionsText
+  type: PaloozaPlugin4TypeString

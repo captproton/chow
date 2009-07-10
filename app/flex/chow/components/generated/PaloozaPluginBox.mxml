@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" label="PaloozaPlugin"
+  xmlns:rx="org.restfulx.components.rx.*">
+  <mx:Script><![CDATA[
+    import org.restfulx.Rx;
+    import org.restfulx.utils.RxUtils;
+    import chow.models.PaloozaPlugin;
+
+    [Bindable]
+    private var paloozaPlugin:PaloozaPlugin = new PaloozaPlugin();
+
+    private function newPaloozaPlugin():void {
+      paloozaPlugin = new PaloozaPlugin();
+      paloozaPluginsList.selectedIndex = -1;
+    }
+
+    private function savePaloozaPlugin():void {
+      updateModelProperties();
+      if (paloozaPlugin.id) {
+        paloozaPlugin.update({onSuccess: onPaloozaPluginUpdate});
+      } else {
+        paloozaPlugin.create({onSuccess: onPaloozaPluginCreate});
+      }
+    }
+  
+    private function updateModelProperties():void {
+      paloozaPlugin.name = nameTextInput.text;
+      paloozaPlugin.options = optionsTextArea.text;
+      paloozaPlugin.type = typeTextInput.text;
+  
+    }
+   
+    private function destroyPaloozaPlugin():void {
+      paloozaPlugin.destroy({onSuccess: onPaloozaPluginDestroy});
+    }
+    
+    private function onPaloozaPluginSelect():void {
+      paloozaPlugin = RxUtils.clone(paloozaPluginsList.selectedItem) as PaloozaPlugin;
+    }
+    
+    private function onPaloozaPluginCreate(result:PaloozaPlugin):void {
+      paloozaPlugin = new PaloozaPlugin;
+    }
+    
+    private function onPaloozaPluginUpdate(result:PaloozaPlugin):void {
+      paloozaPluginsList.selectedItem = result;
+      onPaloozaPluginSelect();
+    }
+    
+    private function onPaloozaPluginDestroy(result:PaloozaPlugin):void {
+      onPaloozaPluginCreate(result);
+    }    
+  ]]></mx:Script>
+  <mx:Panel id="paloozaPluginsPanel"
+    title="PaloozaPlugins" cornerRadius="0" dropShadowEnabled="false" borderStyle="solid"
+    borderThickness="1" backgroundColor="#EEEEEE" width="25%" height="100%">
+    <mx:List id="paloozaPluginsList"
+      width="100%" height="100%"
+      dataProvider="{Rx.models.index(PaloozaPlugin)}"
+      change="onPaloozaPluginSelect()"/>
+    <mx:ControlBar width="100%">
+      <mx:Button label="New PaloozaPlugin" width="100%" height="30"
+        click="newPaloozaPlugin()"/>
+    </mx:ControlBar>
+  </mx:Panel>
+  <mx:Panel title="Edit PaloozaPlugin" cornerRadius="0" dropShadowEnabled="false" borderStyle="solid"
+    borderThickness="1" backgroundColor="#EEEEEE" width="75%" height="100%">
+    <mx:Form width="100%" height="100%">
+      <mx:FormItem label="Name" width="100%">
+        <mx:TextInput id="nameTextInput" width="100%" text="{paloozaPlugin.name}"/>
+      </mx:FormItem>
+      <mx:FormItem label="Options" width="100%">
+        <mx:TextArea id="optionsTextArea" width="100%" height="200" text="{paloozaPlugin.options}"/>
+      </mx:FormItem>
+      <mx:FormItem label="Type" width="100%">
+        <mx:TextInput id="typeTextInput" width="100%" text="{paloozaPlugin.type}"/>
+      </mx:FormItem>
+    </mx:Form>
+    <mx:ControlBar width="100%">
+      <mx:Button label="Save PaloozaPlugin" width="50%" height="30"
+        click="savePaloozaPlugin()"/>
+      <mx:Button label="Delete PaloozaPlugin" width="50%" height="30"
+        enabled="{RxUtils.canDeleteModel(paloozaPlugin)}"
+        click="destroyPaloozaPlugin()"/>
+    </mx:ControlBar>
+  </mx:Panel>
+</mx:HBox>
