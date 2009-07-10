@@ -1,0 +1,178 @@
+# This file is auto-generated from the current state of the database. Instead of editing this file, 
+# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your database schema. If you need
+# to create the application database on another system, you should be using db:schema:load, not running
+# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended to check this file into your version control system.
+
+contact:
+ - first_name: string
+ - last_name: string
+ - email_address: string
+ - notes: text
+ - attachment_field: [avatar]
+ 
+ 
+assets:
+ - content_type: string   ""
+ -  filename: string   ""
+ -  size: integer  ""
+ -  parent_id: integer  "parent_id"
+ -  site_id: integer  ""
+ -  title: string   ""
+ -  user_id: integer  ""
+
+assigned_assets:
+ -  article_id: integer  ""
+ -  asset_id: integer  ""
+ -  position: integer  ""
+ -  label: string   ""
+ -  active: boolean  ""
+
+assigned_sections:
+ -  article_id: integer ""
+ -  section_id: integer ""
+ -  position: integer "",   :default => 1
+
+  add_index "assigned_sections", ["article_id", "section_id"], :name => "idx_a_sections_article_section"
+
+cached_pages:
+ -  url: string   ""
+ -  references: text     ""
+ -  updated_at: datetime ""
+ -  site_id: integer  ""
+ -  cleared_at: datetime ""
+
+content_versions:
+ -  content_id: integer  ""
+ -  version: integer  ""
+ -  article_id: integer  ""
+ -  user_id: integer  ""
+ -  title: string   ""
+ -  permalink: string   ""
+ -  excerpt: text     ""
+ -  body: text     ""
+ -  excerpt_html: text     ""
+ -  body_html: text     ""
+ -  published_at: datetime ""
+ -  author: string   "",         :limit => 100
+ -  author_url: string   ""
+ -  author_email: string   ""
+ -  author_ip: string   "",      :limit => 100
+ -  comments_count: integer  "",                :default => 0
+ -  updater_id: integer  ""
+ -  versioned_type: string   "", :limit => 20
+ -  site_id: integer  ""
+ -  approved: boolean  "",                      :default => false
+ -  comment_age: integer  "",                   :default => 0
+ -  filter: string   ""
+ -  user_agent: string   ""
+ -  referrer: string   ""
+ -  assets_count: integer  "",                  :default => 0
+
+contents:
+ -  article_id: integer  ""
+ -  user_id: integer  ""
+ -  title: string   ""
+ -  permalink: string   ""
+ -  excerpt: text     ""
+ -  body: text     ""
+ -  excerpt_html: text     ""
+ -  body_html: text     ""
+ -  created_at: datetime ""
+ -  updated_at: datetime ""
+ -  published_at: datetime ""
+ -  type: string   "",           :limit => 20
+ -  author: string   "",         :limit => 100
+ -  author_url: string   ""
+ -  author_email: string   ""
+ -  author_ip: string   "",      :limit => 100
+ -  comments_count: integer  "",                :default => 0
+ -  updater_id: integer  ""
+ -  version: integer  ""
+ -  site_id: integer  ""
+ -  approved: boolean  "",                      :default => false
+ -  comment_age: integer  "",                   :default => 0
+ -  filter: string   ""
+ -  user_agent: string   ""
+ -  referrer: string   ""
+ -  assets_count: integer  "",                  :default => 0
+
+events:
+ -  mode: string   ""
+ -  user_id: integer  ""
+ -  article_id: integer  ""
+ -  title: text     ""
+ -  body: text     ""
+ -  created_at: datetime ""
+ -  author: string   "",     :limit => 100
+ -  comment_id: integer  ""
+ -  site_id: integer  ""
+
+
+feedbacks:
+ -  site_id: integer  ""
+ -  name: string   ""
+ -  email: string   ""
+ -  body: text     ""
+ -  key: string   ""
+ -  created_at: datetime ""
+
+memberships:
+ -  site_id: integer  ""
+ -  user_id: integer  ""
+ -  created_at: datetime ""
+ -  admin: boolean  "",      :default => false
+
+
+palooza_plugins:
+ -  name: string ""
+ -  options: text   ""
+ -  type: string ""
+
+sections:
+ -  : string  "name"
+ -  : boolean "show_paged_articles", :default => false
+ -  : integer "articles_per_page",   :default => 15
+ -  : string  "layout"
+ -  : string  "template"
+ -  : integer "site_id"
+ -  : string  "path"
+ -  : integer "articles_count",      :default => 0
+ -  : string  "archive_path"
+ -  : string  "archive_template"
+ -  : integer "position",            :default => 1
+
+sites:
+ -  : string  "title"
+ -  : string  "subtitle"
+ -  : string  "email"
+ -  : text    "ping_urls"
+ -  : integer "articles_per_page",                 :default => 15
+ -  : string  "host"
+ -  : string  "akismet_key",        :limit => 100
+ -  : string  "akismet_url"
+ -  : boolean "approve_comments"
+ -  : integer "comment_age"
+ -  : string  "timezone"
+ -  : string  "filter"
+ -  : string  "permalink_style"
+ -  : string  "search_path"
+ -  : string  "tag_path"
+ -  : string  "tag_layout"
+ -  : string  "current_theme_path"
+
+  add_index "sites", ["host"], :name => "index_sites_on_host"
+
+taggings:
+ -  tag_id: integer ""
+ -  taggable_id: integer ""
+ -  taggable_type: string  ""
+
+tags:
+ -  name: string ""
+

@@ -22,6 +22,8 @@ Rails::Initializer.run do |config|
   config.gem "restfulx"
   config.gem "paperclip"
   config.gem "authlogic"
+  config.gem 'jackdempsey-acts_as_commentable', :lib => 'acts_as_commentable', :source => "http://gems.github.com"
+  
   ## config.gem "mislav-will_paginate"
   
   # Only load the plugins named here, in the order given (default is alphabetical).
