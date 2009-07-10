@@ -178,7 +178,7 @@ html[xmlns*=""] body.hub_front_door:last-child #main2 .bg_white {width: 46.35em}
 #hd .ad {font-size: 85%; color: #fff}
 
 #hd .ad.sp64,
-#banner_rok_ad {position: absolute; top: -1.75em; width: 50%}
+#banner_rok_ad {position: absolute; top: -1.75em; width: 33%}
 
 #hd .ad a {text-decoration: underline; color: #fff}
 #hd .ad a:hover {text-decoration: none}
@@ -193,7 +193,7 @@ display: inline}
 /* madison text ad */
 #hd .ad.sp64 {right: .5em; vertical-align: bottom; text-align: right}
 
-#banner_rok_ad {left: 50%; margin-left: -25%; text-align: center}
+#banner_rok_ad {left: 50%; margin-left: -16.5%; text-align: center}
 #banner_rok_ad img {display: none}
 
 #hd .ad.sp2 {float: right; clear: right}
@@ -730,7 +730,7 @@ li.newsletter_item #long_description {
 	margin-bottom:.6em
 }
 #fd_promo a {
-	background: url(http://www.chow.com/assets/2008/07/SlowFoodNationFast_273x100.jpg ) no-repeat;
+	background: url(/assets/2008/06/recipe_promo_header.jpg ) no-repeat;
 }
 
 .module {
@@ -748,11 +748,11 @@ li.newsletter_item #long_description {
 }
 .module p.topic_header_underline {
   font-size: 122%;
-  font-family: arial,helvetica,clean,sans-serif;
+  font-family: arial,helvatica,clean,sans-serif;
 }
 .module p.blog_logo {
   font-size: 152%;
-  font-family: arial,helvetica,clean,sans-serif;
+  font-family: arial,helvatica,clean,sans-serif;
 }
 
 #recipes .module_promo {
@@ -1292,23 +1292,6 @@ p.separator del {
   margin-bottom:0;
 }
 
-#hub-intro {
-	font-size:13px;
-	font-family:georgia,times, serif;
-	line-height:18px;
-	color:#333;
-	margin-bottom:1em;
-}
-#hub-intro a:link,
-#hub-intro a:visited {
-	color:#006699;
-	text-decoration:none;
-}
-#hub-intro a:hover {
-	color:#333;
-	text-decoration:underline;
-}
-
 .recipes_types #ur_promo {
   padding-bottom: 1em;
 }
@@ -1346,36 +1329,36 @@ p.separator del {
   padding-left: 30px; padding-bottom: 1em;
 }
 
-.d1  {background-image:url(/images/digits_p1.gif)}
-.d2  {background-image:url(/images/digits_p2.gif)}
-.d3  {background-image:url(/images/digits_p3.gif)}
-.d4  {background-image:url(/images/digits_p4.gif)}
-.d5  {background-image:url(/images/digits_p5.gif)}
-.d6  {background-image:url(/images/digits_p6.gif)}
-.d7  {background-image:url(/images/digits_p7.gif)}
-.d8  {background-image:url(/images/digits_p8.gif)}
-.d9  {background-image:url(/images/digits_p9.gif)}
-.d10 {background-image:url(/images/digits_p10.gif)}
-.d11 {background-image:url(/images/digits_p11.gif)}
-.d12 {background-image:url(/images/digits_p12.gif)}
-.d13 {background-image:url(/images/digits_p13.gif)}
-.d14 {background-image:url(/images/digits_p14.gif)}
-.d15 {background-image:url(/images/digits_p15.gif)}
-.d16 {background-image:url(/images/digits_p16.gif)}
-.d17 {background-image:url(/images/digits_p17.gif)}
-.d18 {background-image:url(/images/digits_p18.gif)}
-.d19 {background-image:url(/images/digits_p19.gif)}
-.d20 {background-image:url(/images/digits_p20.gif)}
-.d21 {background-image:url(/images/digits_p21.gif)}
-.d22 {background-image:url(/images/digits_p22.gif)}
-.d23 {background-image:url(/images/digits_p23.gif)}
-.d24 {background-image:url(/images/digits_p24.gif)}
-.d25 {background-image:url(/images/digits_p25.gif)}
-.d26 {background-image:url(/images/digits_p26.gif)}
-.d27 {background-image:url(/images/digits_p27.gif)}
-.d28 {background-image:url(/images/digits_p28.gif)}
-.d29 {background-image:url(/images/digits_p29.gif)}
-.d30 {background-image:url(/images/digits_p30.gif)}
+.d1  {background-image:url(http://chowhound.chow.com/images/digits_p1.gif)}
+.d2  {background-image:url(http://chowhound.chow.com/images/digits_p2.gif)}
+.d3  {background-image:url(http://chowhound.chow.com/images/digits_p3.gif)}
+.d4  {background-image:url(http://chowhound.chow.com/images/digits_p4.gif)}
+.d5  {background-image:url(http://chowhound.chow.com/images/digits_p5.gif)}
+.d6  {background-image:url(http://chowhound.chow.com/images/digits_p6.gif)}
+.d7  {background-image:url(http://chowhound.chow.com/images/digits_p7.gif)}
+.d8  {background-image:url(http://chowhound.chow.com/images/digits_p8.gif)}
+.d9  {background-image:url(http://chowhound.chow.com/images/digits_p9.gif)}
+.d10 {background-image:url(http://chowhound.chow.com/images/digits_p10.gif)}
+.d11 {background-image:url(http://chowhound.chow.com/images/digits_p11.gif)}
+.d12 {background-image:url(http://chowhound.chow.com/images/digits_p12.gif)}
+.d13 {background-image:url(http://chowhound.chow.com/images/digits_p13.gif)}
+.d14 {background-image:url(http://chowhound.chow.com/images/digits_p14.gif)}
+.d15 {background-image:url(http://chowhound.chow.com/images/digits_p15.gif)}
+.d16 {background-image:url(http://chowhound.chow.com/images/digits_p16.gif)}
+.d17 {background-image:url(http://chowhound.chow.com/images/digits_p17.gif)}
+.d18 {background-image:url(http://chowhound.chow.com/images/digits_p18.gif)}
+.d19 {background-image:url(http://chowhound.chow.com/images/digits_p19.gif)}
+.d20 {background-image:url(http://chowhound.chow.com/images/digits_p20.gif)}
+.d21 {background-image:url(http://chowhound.chow.com/images/digits_p21.gif)}
+.d22 {background-image:url(http://chowhound.chow.com/images/digits_p22.gif)}
+.d23 {background-image:url(http://chowhound.chow.com/images/digits_p23.gif)}
+.d24 {background-image:url(http://chowhound.chow.com/images/digits_p24.gif)}
+.d25 {background-image:url(http://chowhound.chow.com/images/digits_p25.gif)}
+.d26 {background-image:url(http://chowhound.chow.com/images/digits_p26.gif)}
+.d27 {background-image:url(http://chowhound.chow.com/images/digits_p27.gif)}
+.d28 {background-image:url(http://chowhound.chow.com/images/digits_p28.gif)}
+.d29 {background-image:url(http://chowhound.chow.com/images/digits_p29.gif)}
+.d30 {background-image:url(http://chowhound.chow.com/images/digits_p30.gif)}
 
 #instructions p {
   margin-bottom: 0;
@@ -1617,7 +1600,7 @@ p.separator del {
   overflow:hidden;
   text-indent:-9999px;
   float:left;
-  background-image:url(/assets/2008/06/stars_multi.gif);
+  background-image:url(/assets/8/06/stars_multi.gif);
   margin:0 !important;
 }
 .stories_show .supertaster .rating .viewport {
@@ -4407,7 +4390,7 @@ a.more_link:hover {
     float:left;
 }
 
-#submit_recipe select#recipe_category_id, 
+#submit_recipe select#recipe_food_category_id, 
 #submit_recipe select#recipe_cuisine,
 #submit_recipe select#recipe_difficulty {
     width: 16em;

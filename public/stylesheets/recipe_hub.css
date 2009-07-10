@@ -1,0 +1,247 @@
+/* === Layout === */
+
+.yui-g .yui-u{width:45.65%;}
+#recipe_hub .yui-g div.first {
+	width:51%;
+	margin-right:3.35%;
+}
+
+/* === Shared Styles === */
+
+#recipe_hub h4 {
+	font-size:1em;
+	font-weight:bold;
+}
+.hd_bar {
+	background-color:#ececec; /*light gray*/
+	font-weight:bold;
+	font-size:.95em;
+	color:#616161;/*gray*/
+	padding:.25em 0 .15em .35em;
+	margin: .25em 0 0 0;
+}
+.header {
+	font-size:1.2em;
+	margin-bottom:.75em;
+	color:#bd2f1f;
+	font-weight:bold;
+}
+
+/* === Editor's Pick === */
+
+#editors_pick .hd_bar, 
+#quick_n_easy .hd_bar,
+#latest_recipe .hd_bar {
+	margin-bottom:1em;
+}
+#editors_pick h1 {
+	font-size:1.75em;
+	color:#717171;
+	font-weight:bold;
+	line-height:1em;
+	margin-top:.25em;
+}
+.first_recipe {
+	margin: .75em 0;
+}
+.first_recipe img {
+	float:left;
+	padding:0 1em .75em 0;
+}
+
+/* === Quick n' Easy === */
+
+#quick_n_easy ul{
+	padding: 0 1em;
+}
+ul.recipe_list{
+	padding: .5em .35em;
+}
+#quick_n_easy {
+	border-left: 1px solid #ececec;
+}
+#quick_n_easy ul li img { 
+	padding:0 1em 1em 0;
+	}
+#quick_n_easy ul li, ul.recipe_list li {
+	margin-bottom: 1em;
+}
+
+/* === Search and Browse === */
+
+#search_bar {
+	background-color:#989898; /*dark gray*/
+	padding-bottom:.85em;
+	margin-bottom:1.5em;
+}
+#search_bar p, #search_bar form {
+	float:left;
+	padding:.5em;
+}
+#search_bar #recipes_search input {
+  vertical-align: middle;
+}
+#search_bar p {
+	padding:.70em 0 0 .75em;
+	width:8.5em;
+	color:#fff;
+	font-weight:bold;
+}
+#search_bar p.adv {
+	float:right;
+	width:9em;
+	padding-right:.5em;
+}
+#search_bar p.adv a:link, 
+#search_bar p.adv a:visited {
+	color:#fff;
+} 
+#search_bar p.adv a:hover {
+	color:#ececec;
+}
+#browse {
+	width:100%;
+	background-color:#e7ebec; /*gray*/
+}
+#browse_by {
+	width:9.7em;
+	float:left;
+	background-color:#fff
+}
+#browse_by ul li {
+	padding: .35em 0 .25em .75em;
+	margin: .2em 0;
+	background-color:#ebebeb; /*gray*/
+	font-size:.85em;
+	font-weight:bold;
+}
+#browse_by ul li.bby {
+	background-color:#ec1415; /*red*/
+	color:#fff;
+	font-weight:bold;
+	padding: .65em .65em;
+	font-size:1em;
+}
+#browse_by ul li a {
+  text-decoration: none;
+}
+#browse_by ul li.current a {
+  color: #ffffff;
+}
+#browse_by ul li.current {
+  background-color: #ebebeb;
+  background-image: url('/images/recipes/pointer.gif');
+}
+
+#col_ingredients, #col_courses, #col_cuisines, #col_tags {
+	width:30em;
+	float:left;
+}
+#browse .column {
+	width:27%;
+	padding:1em 1em 1em .75em;
+	float:left;
+}
+#browse .bg_color {
+	background-color:#fff;
+}
+#browse .column li {
+  margin-top: 0.2em;
+  font-size: smaller;
+}
+#browse .column a {
+  text-decoration: none;
+}
+
+#browse p.more {
+  margin: -3.0em 0 0.1em 0;
+  font-size: 0.75em;
+  float: right;
+}
+#browse p.more a {
+  font-weight: normal;
+}
+
+/* === Latest Recipe === */
+
+#latest_recipe h2 {
+	font-size:1.15em;
+	font-weight:bold;
+	margin:.5em 0 0 .35em;
+}
+#latest_recipe p.description {
+	color:#656565;
+	margin-left: .35em;
+}
+
+#latest_recipe {
+	padding-bottom: 1.5em;
+	margin-bottom: 1em;
+}
+#latest_recipes_list {
+	margin-left:.35em;
+}
+.topic {
+	font-size: .9em;
+}
+
+/* === Video === */
+
+#video_tips {
+	background-color:#333;
+	padding:0;
+	margin:0;
+}
+#video_tips .module_body {
+	background-color:#999;
+	padding:.5em;
+}
+#video_tips .gumball h4 a:link, #video_tips .gumball h4 a:visited,
+#video_tips .gumball .description a:link, #video_tips .gumball .description a:visited {
+	color:#fff;
+}
+#video_tips .gumball h4 a:hover,
+#video_tips .gumball .description a:hover {
+	color:#f1f1f1;
+}
+
+/* === Most Popular and Highest Rated === */
+
+.bg_two_color {
+	margin-bottom:1.5em;
+}
+.bg_two_color a:link, .bg_two_color ul li a:visited {
+	text-decoration:none;
+}
+.bg_two_color ul.rated li a {
+		float:left;
+}
+.bg_two_color ul li a:hover {
+	text-decoration: underline;
+}
+.bg_two_color ul li {
+	background-color:#ccc;
+	font-size:.80em;
+	padding:.40em 0 .30em .5em;
+}
+.bg_two_color ul li.odd {
+	background-color: #c3c3c3;
+}
+.bg_two_color ul li span.stars {
+	float:left;
+	margin-left:1em;
+}
+
+/* === Hub Footer === */
+#hub_ft {
+	background-color:#ececec;
+	padding:1em;
+	font-weight:bold;
+	text-align:right;
+}
+#hub_ft a:link, #hub_ft a:visited {
+	color:#b62007; /* red */
+}
+#hub_ft a:hover {
+	color:#ec1415; /*red*/
+}

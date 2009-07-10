@@ -2,3 +2,4 @@ restfulx
 paperclip  
 authlogic
 right_aws
+mislav-will_paginate --version 2.3.8

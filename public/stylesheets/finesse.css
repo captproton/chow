@@ -1,0 +1,195 @@
+/* --- text alignment --- */
+
+.tal {
+    text-align:left;
+}
+.tac, .center {
+    text-align:center;
+}
+.tar,
+.t_ar {
+    text-align:right;
+}
+.nobreak {
+    white-space: nowrap;
+}
+.caps {
+    text-transform:uppercase;
+}
+.t_grey,
+.c777 {
+  color:#777;
+}
+.c555 {
+  color:#555;
+}
+/* --- headers --- */
+
+.topic_header,
+.topic_header_underline {
+    font-weight:bold;
+    text-transform:uppercase;
+}
+.topic_header a,
+.topic_header_underline a {
+    text-decoration:none;
+}
+.topic_header a:hover,
+.topic_header_underline a:hover {
+    text-decoration:underline;
+}
+h2.topic_header,
+h2.topic_header_underline {
+    font-size:136%;
+}
+h3.topic_header,
+h3.topic_header_underline {
+    font-size:122%;
+}
+h4.topic_header,
+h4.topic_header_underline {
+    font-size:107%;
+}
+
+.topic_header_underline {
+  border-bottom: 1px solid #ccc;
+}
+
+
+/* === grid === */
+
+/* --- floats --- */
+
+.fl {
+    float:left;
+}
+.fr {
+    float:right;
+}
+
+/* --- clear floats --- */
+
+.cl,
+.clear {clear: both}
+.cr    {clear: right}
+.cl    {clear: left}
+
+.clear_1px {
+    font-size:1px;
+    line-height:1px;
+}
+.clear_10px {
+    font-size:.8em;
+    line-height:.8em;
+}
+.clear_20px {
+    font-size:1.6em;
+    line-height:1.6em;
+}
+.clear_30px {
+    font-size:2.4em;
+    line-height:2.4em;
+}
+.clear_40px {
+    font-size:3.2em;
+    line-height:3.2em;
+}
+.clear_50px {
+    font-size:4em;
+    line-height:4em;
+}
+
+/* --- padding --- */
+
+.p0 {
+    padding:0;
+}
+.p5 {
+    padding:.4em;
+}
+.p10 {
+    padding:.8em;
+}
+.p20 {
+    padding:1.6em;
+}
+.p25 {
+    padding:1.8em;
+}
+.pt10 {
+    padding-top:.8em;
+}
+.pl10 {
+    padding-left:.8em;
+}
+.pl20 {
+    padding-left:1.6em;
+}
+
+/* --- margins --- */
+
+.m10 {
+    margin:.8em;
+}
+.mt10 {
+    margin-top:.8em;
+}
+.mt20 {
+    margin-top:1.6em;
+}
+.mt30 {
+    margin-top:2.4em;
+}
+.mt15 {
+    margin-top:1.2em;
+}
+.mr10 {
+    margin-right:.8em;
+}
+.mr20 {
+    margin-right:1.6em;
+}
+.mb20 {
+    margin-bottom:1.6em
+}
+.mb10 {
+    margin-bottom:.8em;
+}
+.mb20 {
+    margin-bottom:1.6em;
+}
+.ml10 {
+    margin-left:.8em;
+}
+.ml20 {
+    margin-left:1.6em;
+}
+/* --- borders --- */
+
+.nb {
+    border: none;
+    border-top:0;
+    border-right:0;
+    border-bottom:0;
+    border-left:0;
+}
+
+/* === forms === */
+
+.button {
+    margin:0 0 -.4em 0;
+}
+
+/* === headers === */
+
+.topic_header,
+.topic_header a {
+    text-transform:uppercase;
+    text-decoration:none;
+    font-weight:bold;
+}
+.topic,
+.topic a {
+    text-transform:uppercase;
+    text-decoration: none;
+}

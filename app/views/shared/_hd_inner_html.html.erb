@@ -1,4 +1,59 @@
+			<div class="ad" id="banner_rok_ad">
+<%# 				<div class="rubics_netxp1_main" id="rbx_netxp1_parent">
+					<script type="text/javascript">
+//<![CDATA[
+function do_rbx_ctrk_netxp1 (aElem, iTrkId, cTrkPrefix) {
+	var imgElem = document.getElementById(iTrkId);
+	if (!imgElem) {
+		return true;
+	}
 
+	if (!aElem.rbxCPrefixed) {
+		aElem.rbxCPrefixed = true;
+		var destUri = encodeURIComponent(aElem.href);
+		var newUri = cTrkPrefix + destUri;
+		aElem.href = newUri;
+	}
+	return true;
+}
+function do_rbx_itrk_netxp1 (parentId, iTrkId, iTrkUri) {
+	if (!document.images) {
+		return false;
+	}
+
+	var imgId = iTrkId;
+	var imgElem = document.getElementById(imgId);
+
+	if (!imgElem) {
+
+		var parentElem = document.getElementById(parentId);
+		if (!parentElem) {
+			return false;
+		}
+
+		var imgElem = document.createElement('img');
+		if (!imgElem) {
+			return false;
+		}
+
+		imgElem.id = imgId;
+		imgElem.src = iTrkUri;
+		imgElem.alt = '';
+		imgElem.width = '1';
+		imgElem.height = '1';
+
+		parentElem.appendChild(imgElem);
+	}
+	return true;
+}
+//]]>
+</script> On GameSpot: <a target="_top" onclick="return do_rbx_ctrk_netxp1(this, 'rbx_netxp1_1', 'http://dw.com.com/rubicsclk?ver=2&amp;ts=2008.07.07.18.37.36&amp;edId=&amp;onId=&amp;ptId=&amp;sId=103&amp;appId=19&amp;offId=2330&amp;unitId=45&amp;poolId=1&amp;f1=26&amp;f2=%2d0&amp;f3=%2d0&amp;alg=8&amp;&amp;opt=0&amp;linkPos=1&amp;destUrl=');" href="http://www.gamespot.com/news/show_blog_entry.php?topic_id=26450174&amp;sid=6192858" class="xpromolink">Guitar Hero: Aerosmith set list revealed</a> <script type="text/javascript">
+//<![CDATA[
+do_rbx_itrk_netxp1('rbx_netxp1_parent', 'rbx_netxp1_1', 'http://dw.com.com/rubicsimp/c.gif?ver=2&ts=2008.07.07.18.37.36&edId=&onId=&ptId=&sId=103&appId=19&unitId=45&poolId=1&f1=26&f2=%2d0&f3=%2d0&alg=8&opt=0&off=2330,-1');
+//]]>
+</script><img alt="" src="/images/c.gif" id="rbx_netxp1_1" height="1" width="1" name="rbx_netxp1_1" />
+				</div><!-- ros [r20070521-1832-ronr-v1-13-5:1.13.5] c17-ad-rubics-ros3.cnet.com::4065299376 2008.07.07.18.37.36 --><!-- ros t 0.0.0.0.1.1.1.1 -->
+## To be added later %>			</div>
 
 			<div class="madison_ad ad pos300 sp64 empty">
 				<!-- MAC ad --><!-- NO AD TEXT: _QUERY_STRING="GLOBAL&ADREQ&UA=Mozilla/5.0%20(Macintosh;%20U;%20PPC%20Mac%20OS%20X%2010.4;%20en-US;%20rv:1.9)%20Gecko/2008061004%20Firefox/3.0&REMOTE_ADDR=204.2.133.30&BRAND=26&SITE=103&NCAT=12711:&PTYPE=LP&SP=64&POS=300&BYPASSKEY=" _REQ_NUM="0"  --><!-- default ad --><img src="/images/dotclear.gif" alt="" style="position: absolute; top: 0px; left: 0px;" height="0" width="0" /><!-- MAC [r20080616-1708-msm-1-13-10-LogArgmap:1.13.10] c17-ad-xw4.cnet.com::4065119152 2008.07.08.01.37.36 --><!-- MAC T 0.0.2.3 -->
@@ -16,14 +71,13 @@
 				<div id="user_menu">
 
 					<% if current_user %>
-					<p>
-
-						Hello <%= link_to h(current_user.username), user_path(current_user) %> | <%= link_to 'Sign Out', logout_path %> 	| 
-				  		<%= link_to "Edit Profile", edit_user_path(:current) %>
-						
+					Hello <%= current_user.username %> | 
+					<%= link_to "Edit Profile", edit_user_path(:current) %> | 
+					<%= link_to "Sign Out", logout_path %>
 					<% else %>
-						<%= link_to "Login", login_path %> | 
-						<%= link_to "Sign Up", new_user_path %>
+						<%= link_to "Sign Up", new_user_path %> | 
+						<%= link_to "Sign In", login_path %>
+						
 					<% end %>
 
  | <%# This feature to be added in the future: <a href="/newsletters">Newsletters</a> %></p>
@@ -58,12 +112,12 @@
 
 					<li id="main_menu_videos"><a href="/videos" class="menu_link_text" title="View Videos">Videos</a></li>
 					<li id="main_menu_profile">
-						<% if !logged_in? %>
-							<a href="/login" class="menu_link_text" id="profile_link" title="Visit MyChow" name="profile_link">my Palooza</a> 
-							<a class="toggle_button" id="toggle_profile" style="display: none;" title="Visit your My Palooza profile" name="toggle_profile">
-								<img alt="" src="/images/clear.gif" height="17" width="17" /></a>
+						<% if current_user %>
+	     				<%= link_to "Palooza", user_path(current_user) %> 						    <a class="toggle_button" id="toggle_profile" title="Visit your Palooza profile"><img alt="" height="17" src="/images/clear.gif" width="17" /></a>
 						<% else %>
-		     				<%= link_to "Palooza", user_path(current_user.login) %> 						    <a class="toggle_button" id="toggle_profile" title="Visit your Palooza profile"><img alt="" height="17" src="/images/clear.gif" width="17" /></a>
+						<a href="/login" class="menu_link_text" id="profile_link" title="Visit MyChow" name="profile_link">my Palooza</a> 
+						<a class="toggle_button" id="toggle_profile" style="display: none;" title="Visit your My Palooza profile" name="toggle_profile">
+							<img alt="" src="/images/clear.gif" height="17" width="17" /></a>
 
 						<% end %>
 						
