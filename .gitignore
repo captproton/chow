@@ -1,0 +1,16 @@
+.DS_Store
+log/*.log
+log/searchd*
+tmp/*
+db/*.sqlite3
+config/*sphinx*
+config/database.yml
+nbproject/**/*
+nbproject/project.*
+test
+coverage
+coverage/*
+config/newrelic.yml
+.gitignore.swp
+vendor/plugins/newrelic_rpm
+
