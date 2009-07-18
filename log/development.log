@@ -822,3 +822,29 @@ Rendering template within layouts/application
 Rendering accounts/new
 Rendered accounts/_form (5.7ms)
 Completed in 22ms (View: 10, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#new (for ::1 at 2009-07-18 06:39:28) [GET]
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (15.3ms)
+Completed in 78ms (View: 40, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing ApplicationController#index (for ::1 at 2009-07-18 06:39:33) [GET]
+
+NameError (uninitialized constant WelcomeController):
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /opt/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /opt/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (27.9ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)

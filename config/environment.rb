@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   config.gem "paperclip"
   config.gem "rubyist-aasm", :source => "http://gems.github.com", :lib => "aasm"
   config.gem "right_aws"
-  config.gem 'mislav-will_paginate', :version => '~> 2.3.8', :lib => 'will_paginate', 
+  config.gem 'mislav-will_paginate', :version => '~> 2.3.11', :lib => 'will_paginate', 
       :source => 'http://gems.github.com'    
   
 

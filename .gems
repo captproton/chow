@@ -2,6 +2,6 @@ restfulx
 paperclip  
 authlogic
 right_aws
-mislav-will_paginate --version 2.3.8 --source gems.github.com
+mislav-will_paginate --version 2.3.11 --source gems.github.com
 jackdempsey-acts_as_commentable --source gems.github.com
 rubyist-aasm  --source gems.github.com
