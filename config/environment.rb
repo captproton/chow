@@ -23,6 +23,9 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "paperclip"
   config.gem "rubyist-aasm", :source => "http://gems.github.com", :lib => "aasm"
+  config.gem "right_aws"
+  config.gem "mislav-will_paginate"
+    
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).
