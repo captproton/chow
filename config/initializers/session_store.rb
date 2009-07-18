@@ -5,8 +5,8 @@
 # Make sure the secret is at least 30 characters and all random, 
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
-  :key         => '_palooza_heroku_session',
-  :secret      => '1771d259fcb4c0d068efd9bc754f4975e73ea356f4de344661abecd62941090936f57534a39ea72334ab646b48ffc726e6ab7f30b24d6b76b1f0a72bb72ef45e'
+  :key         => '_chow_session',
+  :secret      => '57ac948a3caf3347281bab3f0924e072588a1de2e4bc5590d3ef6b5b6123d2f8d3c06c9afb5b33a440fb8f689976953156035771b663a5b02f09ee2d29f9269b'
 }
 
 # Use the database for sessions instead of the cookie-based default,
